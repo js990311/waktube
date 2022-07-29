@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테스트 페이지</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <td>제목</td>
+      <td>조회수</td>
+    </thead>
+    {% for models in ret %}
+    <tr>
+      <td>{{models.title}}</td>
+      <td>{{models.views}}</td>
+    </tr>
+    {% endfor %}
+  </table>  
+</body>
+</html>

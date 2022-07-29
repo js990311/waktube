@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비디오 목록</title>
+</head>
+<body>
+  <a href="/">메인메뉴로</a>
+  <h1>총 {{counts}}개 저장되어 있음</h1>
+  <table>
+    <thead>
+      <td>제목</td>
+      <td>조회수</td>
+      <td>영상아이디</td>
+      <td>업로드날짜</td>
+      <td>업로더</td>
+      <td>버튼</td>
+    </thead>
+    {% for video in videos %}
+    <tr>
+        <td>
+          <a href="{{video.vid}}">{{video.title}}</a>
+        </td>
+        <td>
+          {{video.views}}
+        </td>
+        <td>
+          {{video.vid}}
+        </td>
+        <td>
+          {{video.uploadDate}}
+        </td>
+        <td>
+          {{video.uploader}}
+        </td>
+        <td>
+          <a href="{{video.vid}}?delete=true">삭제하기</a>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>  
+</body>
+</html>
