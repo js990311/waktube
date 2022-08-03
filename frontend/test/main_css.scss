@@ -2,6 +2,7 @@ body{
   width:100%;
   height:100vh;
   overflow: hidden;
+  background-color: #000;
 }
 .fixed-box{
   position: fixed;
@@ -25,6 +26,7 @@ body{
     height: 100%;
     display: table-cell;
     right : 0;
+    overflow: hidden;
   }
 }    
 [data-location='50']{
@@ -37,14 +39,15 @@ body{
   transform: translateX(-150%);
 }
 
-.player{
+.player{ // 유튜브 동영상 플레이어 뒷배경 클래스 
   width: 50%;
-  height: 100%;
+  height: 140%;
+  top: -20vh;
   z-index: 3;
   position: absolute;
   background-color: violet;
 }
-.points{
+.points-layer{
   padding: 0 10%;
   line-height: 50px;
   font-size: 1.3rem;
@@ -53,19 +56,29 @@ body{
   height: 50px;
   color: white;
   font-weight: 700;
-  background-color: rgba(gray, 0.7);
+  position: relative;
+  // background-color: rgba(gray, 0.7);
+  .current-points{
+    position:absolute;
+    right: 3vw;
+    top:2vh;
+  }
+  .max-points{
+    position: absolute;
+    left: 3vw;
+    top:2vh;
+  }
 }
 
 .btn-layer{
   width: 100%;
   height: 10%;
   position: absolute;
-  top:80%;
+  bottom: 23vh;
   z-index: 999;
 }
 
 .btn{
-  border-radius: 70px;
   margin: 0 auto;
   width: 16.666666666666%;
   height: 100%;
@@ -76,17 +89,33 @@ body{
   border: 4px solid white;
   color : white;
   position: absolute;  
-  background-color: rgba(#ddd, 0.4);
+  i{
+    font-size: 1.5rem;
+  }
 }
-
+@keyframes iconMovement {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-6px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
 .btn:hover{
   border: 3px solid gray;
   color : #888;  
   background-color: white;
   box-sizing: white;
   box-shadow: 0px 0px 20px white;
-}
 
+  i{
+    animation: iconMovement 1000ms;
+    animation-iteration-count : infinite ;
+  }
+}
 #left-btn{
   left: 16.666666666666%;
 }
@@ -98,34 +127,38 @@ body{
 }
 .info-layer{
   position: absolute;
-  top : 50px;
-  height: 25%;
   left : 7.14285714%;
   width: 35.7142857%;
   z-index: 5;
   color:white;
+  bottom: 40vh;
   text-align: center;
   padding-top: 10px;
   font-weight: 700;
+  text-shadow: 0 0 5px #fff;
   p{
-    margin-bottom: 15px;
+    margin-bottom: 7px;
   }
+  opacity: 0.8;
 }
 .title{
   font-size: 2rem;
+  height: 150px;
+  overflow: hidden;
+  vertical-align: bottom;
 }
-
 .views{
+  text-shadow: 0 0 5px #fff;
   span{
     margin : 0 auto;
     background-color: white;
     color: black;
-    width: 60%;
     padding: 6px 0;
     display: block;
     letter-spacing: 3px;
     font-size: 1.8rem;
     position: relative;
+    border:1px #ccc solid;
   }
   span::after{
     // transition: all 0.8s  cubic-bezier(0,.3,.51,.38);
@@ -142,32 +175,235 @@ body{
     overflow: hidden;
   }
   span.display::after{
-    animation: displayViews 0.38s;
+    animation: displayViews 180ms;
     height: 0%;
     padding: 0;
   }
 }
 @keyframes displayViews {
   0%{height: 100%;}
-  11%{height: 63%;}
-  55%{height: 63%;}
-  // 66%{height: 100%;}
   100%{height:0%;}
 }
-
 .circle-layer{
-  width: 8vw;
-  height: 8vw;
+  width: 6vw;
+  height: 6vw;
   text-align: center;
-  line-height: 8vw;
+  line-height: 6vw;
   position: absolute;
-  top:46vh;
-  left: 46vw;
+  top:47vh;
+  left: 47vw;
   // border-radius: 10vw; 사유 : 밑에있는 애들이 원모양이 안된다
-  z-index: 300;
   .circle-box{
     width: 100%;
     height: 100%;
     position:relative;
+    border-radius: 6vw;
+    transform-style: preserve-3d;
+    transition: transform 0.2s;
+  }
+  .circle-box.circle-rotate{
+    transition: transform 0.4s;
+    transform: rotateY(180deg);
+  }
+  .circle-obj{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6vw;
+    overflow: hidden;
+    text-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #ddd, 0 0 20px #000;
+  }  
+  #front{
+    backface-visibility: hidden;
+    background-color: #888;
+  }
+  #front::before{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;height: 100%;
+    content: "\3f";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    font-size: 4rem;
+    color: white;
+    z-index: 210;
+  }
+  #front::after{
+    content: '';
+    z-index: 209;
+  }
+  #front.timeAttack{
+    background-color: yellow;
+  }
+  #front.timeAttack::before{
+    animation: timeAttackIcon 10s;
+  }
+  #front.timeAttack::after{
+    animation: timeAttackBackGround 10s;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 0%;
+    background-color: #000;
+    opacity: 0.6;
+  }
+  @keyframes timeAttackIcon {
+    0%{
+      content: "\39";
+      font-size: 4rem;
+    }
+    5%{
+      font-size: 5rem;
+    }
+    10%{
+      content: "\39";
+      font-size: 4rem;
+    }
+    15%{
+      font-size: 5rem;
+    }
+    20%{
+      content: "\38";
+      font-size: 4rem;
+    }
+    25%{
+      font-size: 5rem;
+    }
+    30%{
+      content: "\37";
+      font-size: 4rem;
+    }
+    35%{
+      font-size: 5rem;
+    }
+    40%{
+      content: "\36";
+      font-size: 4rem;
+    }
+    45%{
+      font-size: 5rem;
+    }
+    50%{
+      content: "\35";
+      font-size: 4rem;
+    }
+    55%{
+      font-size: 5rem;
+    }
+    60%{
+      content: "\34";
+      font-size: 4rem;
+    }
+    65%{
+      font-size: 5rem;
+    }
+    70%{
+      content: "\33";
+      font-size: 4rem;
+    }
+    75%{
+      font-size: 5rem;
+    }
+    80%{
+      content: "\32";
+      font-size: 4rem;
+    }
+    85%{
+      font-size: 5rem;
+    }
+    90%{
+      content: "\31";
+      font-size: 4rem;
+    }
+    95%{
+      font-size: 5rem;
+    }
+    100%{
+      content: "\30";
+      font-size: 4rem;
+    }
+  }  
+  @keyframes timeAttackBackGround {
+    0%{
+      height: 0%;
+    }
+    10%{
+      height: 10%;
+    }
+    20%{
+      height: 20%;
+    }
+    30%{
+      height: 30%;
+    }
+    40%{
+      height: 40%;
+    }
+    50%{
+      height: 50%;
+    }
+    60%{
+      height: 60%;
+    }
+    70%{
+      height: 70%;
+    }
+    80%{
+      height: 80%;
+    }
+    90%{
+      height: 90%;
+    }
+    100%{
+      height: 100%;
+    }
+  }
+  #back{
+    transform: rotateY(180deg);
+    background-color: transparent;
+  }  
+  #back.success{
+    background-color: green;
+  }
+  #back.success::before{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;height: 100%;
+    content: "\f00c";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    font-size: 4rem;
+    color: white;
+  }
+  #back.fail{
+    background-color: red;
+  }
+  #back.fail::before{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;height: 100%;
+    content: "\f00d";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    font-size: 4rem;
+    color: white;
   }
 }
+
+.blur-layer{
+  width: 50%;
+  height: 100%;
+  z-index: 4;
+  position: absolute;
+  background-color: rgba(#000, 0.7);
+}
+// 미디어쿼리 추가
+// 2560
+// 1920
