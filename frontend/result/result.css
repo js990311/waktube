@@ -1,0 +1,190 @@
+a {
+  all: unset;
+}
+
+a:hover {
+  all: unset;
+  cursor: pointer;
+}
+
+a:visited {
+  all: unset;
+}
+
+a:active {
+  all: unset;
+}
+
+body {
+  text-shadow: 0 0 20px white;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-family: "Goseogu";
+}
+
+.back-ground {
+  width: 100%;
+  height: 120%;
+  top: -10vh;
+  left: 0;
+  position: absolute;
+}
+
+.front-ground {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.result-layer {
+  top: 15vh;
+  position: absolute;
+  width: 100%;
+  font-size: 3rem;
+  margin: 0 auto;
+}
+
+.retry-btn, .retry-btn:hover {
+  position: absolute;
+  top: 60vh;
+  left: 40%;
+  transition: all 300ms;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: block;
+  width: 20%;
+  height: 8vh;
+  line-height: 8vh;
+  font-size: 1.8rem;
+  color: white;
+  border: 4px solid white;
+}
+.retry-btn i, .retry-btn:hover i {
+  transform: translateX(-20px);
+}
+
+h1, h3 {
+  color: #cc0;
+  text-shadow: 0 0 20px #cc0;
+}
+
+.retry-btn:hover {
+  border: 3px solid gray;
+  color: #888;
+  background-color: white;
+  box-sizing: white;
+  box-shadow: 0px 0px 20px white;
+}
+.retry-btn:hover i {
+  -webkit-animation: iconRotate 100ms;
+          animation: iconRotate 100ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes iconRotate {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(-20px) rotateZ(-360deg);
+  }
+}
+
+@keyframes iconRotate {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(-20px) rotateZ(-360deg);
+  }
+}
+.btn:hover span {
+  -webkit-animation: iconMovement 1000ms;
+          animation: iconMovement 1000ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.btn:hover i {
+  -webkit-animation: iconMovement 1000ms;
+          animation: iconMovement 1000ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+p.max-score {
+  font-size: 1em;
+  margin-bottom: 2vh;
+}
+
+p {
+  font-size: 0.7em;
+  margin-bottom: 5vh;
+}
+
+@media (min-width: 1024px) {
+  .result-layer {
+    top: 4vh;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+  }
+  h1, h3, p {
+    margin: 0;
+  }
+  h3 {
+    margin-top: 4vh;
+  }
+  h1 {
+    margin-bottom: 20vh;
+  }
+  p.max-score {
+    font-size: 0.9em;
+    margin-bottom: 2vh;
+  }
+  p {
+    font-size: 0.6em;
+  }
+  .retry-btn, .retry-btn:hover {
+    position: absolute;
+    top: 80vh;
+    left: 20vw;
+    width: 60vw;
+  }
+}
+@media (max-width: 576px) {
+  .result-layer {
+    top: 4vh;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+  }
+  h1, h3, p {
+    margin: 0;
+  }
+  h3 {
+    margin-top: 4vh;
+  }
+  h1 {
+    margin-bottom: 20vh;
+  }
+  p.max-score {
+    font-size: 0.7em;
+    margin-bottom: 2vh;
+  }
+  p {
+    font-size: 0.4em;
+  }
+  .retry-btn, .retry-btn:hover {
+    position: absolute;
+    top: 80vh;
+    left: 5vw;
+    width: 90vw;
+  }
+}/*# sourceMappingURL=result.css.map */

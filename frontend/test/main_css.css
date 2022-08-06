@@ -268,7 +268,6 @@ body {
   content: "?";
   font-weight: 900;
   font-family: "Font Awesome 5 Free";
-  font-size: 4rem;
   color: white;
   z-index: 210;
 }
@@ -532,7 +531,6 @@ body {
   content: "\f00c";
   font-weight: 900;
   font-family: "Font Awesome 5 Free";
-  font-size: 4rem;
   color: white;
 }
 .circle-layer #back.fail {
@@ -547,7 +545,6 @@ body {
   content: "\f00d";
   font-weight: 900;
   font-family: "Font Awesome 5 Free";
-  font-size: 4rem;
   color: white;
 }
 
@@ -557,4 +554,524 @@ body {
   z-index: 4;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 1400px) {
+  #front::before, #back.success::before, #back.fail::before {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 1400px) {
+  @-webkit-keyframes timeAttackIcon {
+    0% {
+      content: "9";
+      font-size: 3rem;
+    }
+    5% {
+      content: "9";
+      font-size: 4rem;
+    }
+    10% {
+      content: "9";
+      font-size: 3rem;
+    }
+    15% {
+      font-size: 4rem;
+    }
+    20% {
+      content: "8";
+      font-size: 3rem;
+    }
+    25% {
+      font-size: 4rem;
+    }
+    30% {
+      content: "7";
+      font-size: 3rem;
+    }
+    35% {
+      font-size: 4rem;
+    }
+    40% {
+      content: "6";
+      font-size: 3rem;
+    }
+    45% {
+      font-size: 4rem;
+    }
+    50% {
+      content: "5";
+      font-size: 3rem;
+    }
+    55% {
+      font-size: 4rem;
+    }
+    60% {
+      content: "4";
+      font-size: 3rem;
+    }
+    65% {
+      font-size: 4rem;
+    }
+    70% {
+      content: "3";
+      font-size: 3rem;
+    }
+    75% {
+      font-size: 4rem;
+    }
+    80% {
+      content: "2";
+      font-size: 3rem;
+    }
+    85% {
+      font-size: 4rem;
+    }
+    90% {
+      content: "1";
+      font-size: 3rem;
+    }
+    95% {
+      font-size: 4rem;
+    }
+    100% {
+      content: "0";
+      font-size: 3rem;
+    }
+  }
+  @keyframes timeAttackIcon {
+    0% {
+      content: "9";
+      font-size: 3rem;
+    }
+    5% {
+      content: "9";
+      font-size: 4rem;
+    }
+    10% {
+      content: "9";
+      font-size: 3rem;
+    }
+    15% {
+      font-size: 4rem;
+    }
+    20% {
+      content: "8";
+      font-size: 3rem;
+    }
+    25% {
+      font-size: 4rem;
+    }
+    30% {
+      content: "7";
+      font-size: 3rem;
+    }
+    35% {
+      font-size: 4rem;
+    }
+    40% {
+      content: "6";
+      font-size: 3rem;
+    }
+    45% {
+      font-size: 4rem;
+    }
+    50% {
+      content: "5";
+      font-size: 3rem;
+    }
+    55% {
+      font-size: 4rem;
+    }
+    60% {
+      content: "4";
+      font-size: 3rem;
+    }
+    65% {
+      font-size: 4rem;
+    }
+    70% {
+      content: "3";
+      font-size: 3rem;
+    }
+    75% {
+      font-size: 4rem;
+    }
+    80% {
+      content: "2";
+      font-size: 3rem;
+    }
+    85% {
+      font-size: 4rem;
+    }
+    90% {
+      content: "1";
+      font-size: 3rem;
+    }
+    95% {
+      font-size: 4rem;
+    }
+    100% {
+      content: "0";
+      font-size: 3rem;
+    }
+  }
+  #front::before, #back.success::before, #back.fail::before {
+    font-size: 3rem;
+  }
+  .info-layer {
+    font-size: 0.8rem;
+  }
+  .info-layer .title {
+    font-size: 1.5rem;
+  }
+  .info-layer .views .display, .info-layer .views span {
+    font-size: 1.3rem;
+  }
+  .points-layer {
+    font-size: 1.5rem;
+    line-height: 39px;
+  }
+}
+@media (max-width: 1200px) {
+  @-webkit-keyframes timeAttackIcon {
+    0% {
+      content: "9";
+      font-size: 2rem;
+    }
+    5% {
+      content: "9";
+      font-size: 3rem;
+    }
+    10% {
+      content: "9";
+      font-size: 2rem;
+    }
+    15% {
+      font-size: 3rem;
+    }
+    20% {
+      content: "8";
+      font-size: 2rem;
+    }
+    25% {
+      font-size: 3rem;
+    }
+    30% {
+      content: "7";
+      font-size: 2rem;
+    }
+    35% {
+      font-size: 3rem;
+    }
+    40% {
+      content: "6";
+      font-size: 2rem;
+    }
+    45% {
+      font-size: 3rem;
+    }
+    50% {
+      content: "5";
+      font-size: 2rem;
+    }
+    55% {
+      font-size: 3rem;
+    }
+    60% {
+      content: "4";
+      font-size: 2rem;
+    }
+    65% {
+      font-size: 3rem;
+    }
+    70% {
+      content: "3";
+      font-size: 2rem;
+    }
+    75% {
+      font-size: 3rem;
+    }
+    80% {
+      content: "2";
+      font-size: 2rem;
+    }
+    85% {
+      font-size: 3rem;
+    }
+    90% {
+      content: "1";
+      font-size: 2rem;
+    }
+    95% {
+      font-size: 3rem;
+    }
+    100% {
+      content: "0";
+      font-size: 2rem;
+    }
+  }
+  @keyframes timeAttackIcon {
+    0% {
+      content: "9";
+      font-size: 2rem;
+    }
+    5% {
+      content: "9";
+      font-size: 3rem;
+    }
+    10% {
+      content: "9";
+      font-size: 2rem;
+    }
+    15% {
+      font-size: 3rem;
+    }
+    20% {
+      content: "8";
+      font-size: 2rem;
+    }
+    25% {
+      font-size: 3rem;
+    }
+    30% {
+      content: "7";
+      font-size: 2rem;
+    }
+    35% {
+      font-size: 3rem;
+    }
+    40% {
+      content: "6";
+      font-size: 2rem;
+    }
+    45% {
+      font-size: 3rem;
+    }
+    50% {
+      content: "5";
+      font-size: 2rem;
+    }
+    55% {
+      font-size: 3rem;
+    }
+    60% {
+      content: "4";
+      font-size: 2rem;
+    }
+    65% {
+      font-size: 3rem;
+    }
+    70% {
+      content: "3";
+      font-size: 2rem;
+    }
+    75% {
+      font-size: 3rem;
+    }
+    80% {
+      content: "2";
+      font-size: 2rem;
+    }
+    85% {
+      font-size: 3rem;
+    }
+    90% {
+      content: "1";
+      font-size: 2rem;
+    }
+    95% {
+      font-size: 3rem;
+    }
+    100% {
+      content: "0";
+      font-size: 2rem;
+    }
+  }
+  #front::before, #back.success::before, #back.fail::before {
+    font-size: 2rem;
+  }
+  .info-layer {
+    font-size: 0.5rem;
+  }
+  .info-layer .title {
+    font-size: 1.2rem;
+  }
+  .info-layer .views .display, .info-layer .views span {
+    font-size: 1rem;
+  }
+  .points-layer {
+    font-size: 1.2rem;
+    line-height: 32px;
+  }
+}
+@media (max-width: 768px) {
+  @-webkit-keyframes timeAttackIcon {
+    0% {
+      content: "9";
+      font-size: 1.3rem;
+    }
+    5% {
+      font-size: 1.8rem;
+    }
+    10% {
+      content: "9";
+      font-size: 1.3rem;
+    }
+    15% {
+      font-size: 1.8rem;
+    }
+    20% {
+      content: "8";
+      font-size: 1.3rem;
+    }
+    25% {
+      font-size: 1.8rem;
+    }
+    30% {
+      content: "7";
+      font-size: 1.3rem;
+    }
+    35% {
+      font-size: 1.8rem;
+    }
+    40% {
+      content: "6";
+      font-size: 1.3rem;
+    }
+    45% {
+      font-size: 1.8rem;
+    }
+    50% {
+      content: "5";
+      font-size: 1.3rem;
+    }
+    55% {
+      font-size: 1.8rem;
+    }
+    60% {
+      content: "4";
+      font-size: 1.3rem;
+    }
+    65% {
+      font-size: 1.8rem;
+    }
+    70% {
+      content: "3";
+      font-size: 1.3rem;
+    }
+    75% {
+      font-size: 1.8rem;
+    }
+    80% {
+      content: "2";
+      font-size: 1.3rem;
+    }
+    85% {
+      font-size: 1.8rem;
+    }
+    90% {
+      content: "1";
+      font-size: 1.3rem;
+    }
+    95% {
+      font-size: 1.8rem;
+    }
+    100% {
+      content: "0";
+      font-size: 1.3rem;
+    }
+  }
+  @keyframes timeAttackIcon {
+    0% {
+      content: "9";
+      font-size: 1.3rem;
+    }
+    5% {
+      font-size: 1.8rem;
+    }
+    10% {
+      content: "9";
+      font-size: 1.3rem;
+    }
+    15% {
+      font-size: 1.8rem;
+    }
+    20% {
+      content: "8";
+      font-size: 1.3rem;
+    }
+    25% {
+      font-size: 1.8rem;
+    }
+    30% {
+      content: "7";
+      font-size: 1.3rem;
+    }
+    35% {
+      font-size: 1.8rem;
+    }
+    40% {
+      content: "6";
+      font-size: 1.3rem;
+    }
+    45% {
+      font-size: 1.8rem;
+    }
+    50% {
+      content: "5";
+      font-size: 1.3rem;
+    }
+    55% {
+      font-size: 1.8rem;
+    }
+    60% {
+      content: "4";
+      font-size: 1.3rem;
+    }
+    65% {
+      font-size: 1.8rem;
+    }
+    70% {
+      content: "3";
+      font-size: 1.3rem;
+    }
+    75% {
+      font-size: 1.8rem;
+    }
+    80% {
+      content: "2";
+      font-size: 1.3rem;
+    }
+    85% {
+      font-size: 1.8rem;
+    }
+    90% {
+      content: "1";
+      font-size: 1.3rem;
+    }
+    95% {
+      font-size: 1.8rem;
+    }
+    100% {
+      content: "0";
+      font-size: 1.3rem;
+    }
+  }
+  #front::before, #back.success::before, #back.fail::before {
+    font-size: 1.3rem;
+  }
+  .info-layer {
+    font-size: 0.3rem;
+  }
+  .info-layer .title {
+    font-size: 1rem;
+  }
+  .info-layer .views .display, .info-layer .views span {
+    font-size: 0.8rem;
+  }
+  .points-layer {
+    font-size: 1rem;
+    line-height: 25px;
+  }
 }/*# sourceMappingURL=main_css.css.map */

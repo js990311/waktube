@@ -4,6 +4,8 @@ tag.src = "https://www.youtube.com/iframe_api";
 let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+
+
 let ytFunc = (tagId) => {
   new YT.Player(document.getElementById(tagId), {
     videoId: tagId, // 재생할 유튜브 영상 ID
@@ -42,23 +44,22 @@ idList = [
   "grhJIUYSNvE"
 ];
 
-let getJson = () =>{
-  //api로 연결되어야함
-  ret = {};
-  if(idTest <= 3){
-    ret['vid'] = idList[idTest];
-    idTest+=1;
-    idTest = idTest % 4;
+let getJson = (newInfo) =>{
+  let req = new XMLHttpRequest();
+  lastViews = (parseViews(document.getElementsByClassName("views")[2].childNodes[0].innerText) / 1000)
+
+  req.open("POST", "/test?lastViews=" + lastViews);
+  req.send();
+
+  req.onreadystatechange = () => {
+    console.log(req.responseText);
+    newInfo = JSON.parse(req.responseText);
   }
-  ret['views'] = String(Math.floor(Math.random() * (999 - 1) ) + 1);
-  ret['title'] = "세세한 클리퍼스 데모곡"
-  ret['uploader'] = "고세구"
-  ret['uploadDate'] = '2015-09-09'
-  return ret;
 }
 
 let newDocument =() =>{
-  newInfo = getJson();
+  newInfo = {};
+  getJson(newInfo);
 
   // 메인박스
   newDiv = document.createElement("div");
@@ -87,10 +88,11 @@ let newDocument =() =>{
   */
   pViews = document.createElement("p");
   pViews.classList.add("views");
-  if(newInfo['views'].length <= 2){
-    views = newInfo['views'] + '0,000';
+  newViews = String(newInfo['views']);
+  if(newViews.length <= 2){
+    views = newViews + '0,000';
   }else{
-    views = newInfo['views'][0] + "," + newInfo['views'].substring(1,) + '0,000';
+    views = newViews[0] + "," + newViews.substring(1,) + '0,000';
   }
   spanViews = document.createElement("span");spanViews.innerHTML = views;
   pViews.appendChild(spanViews);
@@ -151,6 +153,10 @@ let soundPlay = (option) =>{
     audio = document.getElementById("successAudio");
     audio.play();
   }
+  if(option == "fail"){
+    audio = document.getElementById("failAudio");
+    audio.play();
+  }
 }
 
 let parseViews = (row) => {
@@ -194,7 +200,11 @@ let failEvent = () =>{
   console.log("실패");
   score = document.getElementById("score");
   changeCircle("fail");
+  soundPlay("fail");
   toggleBtn();
+  // setTimeout(()=>{
+  //   window.location.href = "/result";
+  // }, 900);
 };
 
 let grading = (self, anti) => {

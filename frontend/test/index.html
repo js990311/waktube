@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0">
   <title>css테스트</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/4f9efab1e5.js" crossorigin="anonymous"></script>
@@ -39,7 +39,7 @@
           <span>2012-07-29</span>
         </p>
         <p class="title">테스트 제목 1</p>
-        <p class="views"><span class="display">123,000</span></p>
+        <p class="views"><span class="display">123</span></p>
       </div>
       <div class="blur-layer"></div>
       <div class="player" id="vc3k7QA3XFA"></div>
@@ -52,7 +52,7 @@
           <span>2022-07-29</span>
         </p>
         <p class="title">여자들이 꼬인다는게 이런거구나.. 대학에서 인싸가 된 체험을 해 봤습니다	</p>
-        <p class="views"><span>721,000</span></p>
+        <p class="views"><span>721</span></p>
       </div>
       <div class="blur-layer"></div>
       <div class="player" id="DioZ9eHcuZY"></div>
@@ -65,14 +65,16 @@
           <span>2022-07-29</span>
         </p>
         <p class="title">(밀덕주의) 이 세상에서 가장 현실적인 밀리터리 군사 게임 아르마3 꿀잼 체험	</p>
-        <p class="views"><span>654,000</span></p>
+        <p class="views"><span>654</span></p>
       </div>
       <div class="blur-layer"></div>
       <div class="player" id="Nd1KlK6rRUw"></div>
     </div>
   </div>
   <audio id='successAudio' src='./success.wav' onloadstart="this.volume=0.23" ></audio> 
-
+  <audio id="failAudio" src="./fail.wav" onloadstart="this.volume=0.50"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="apiLoader.js"></script>
   <script>
     let myFunc = ()=>{
@@ -80,11 +82,21 @@
       ytFunc(p[0].id);
       ytFunc(p[1].id);
       ytFunc(p[2].id);
-      document.getElementById("front").classList.add("timeAttack");
+      let formatting = (raw) =>{
+        cooked = ''
+        if(raw.length <= 2){
+          cooked = raw + '0,000';
+        }else{
+          cooked = raw[0] + "," + raw.substring(1,) + '0,000';
+        }      
+        return cooked;
+      };
+      document.getElementsByClassName("views")[0].childNodes[0].innerHTML = formatting(document.getElementsByClassName("views")[0].childNodes[0].innerHTML);
+      document.getElementsByClassName("views")[1].childNodes[0].innerHTML = formatting(document.getElementsByClassName("views")[1].childNodes[0].innerHTML);
+      document.getElementsByClassName("views")[2].childNodes[0].innerHTML = formatting(document.getElementsByClassName("views")[2].childNodes[0].innerHTML);
+      timeAttack();
     };
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>

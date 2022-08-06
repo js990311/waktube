@@ -228,7 +228,7 @@ body{
     content: "\3f";
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
-    font-size: 4rem;
+    // font-size: 4rem;
     color: white;
     z-index: 210;
   }
@@ -378,7 +378,7 @@ body{
     content: "\f00c";
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
-    font-size: 4rem;
+    // font-size: 4rem;
     color: white;
   }
   #back.fail{
@@ -392,7 +392,7 @@ body{
     content: "\f00d";
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
-    font-size: 4rem;
+    // font-size: 4rem;
     color: white;
   }
 }
@@ -404,6 +404,304 @@ body{
   position: absolute;
   background-color: rgba(#000, 0.7);
 }
-// 미디어쿼리 추가
-// 2560
-// 1920
+
+@media (min-width:1400px) {
+  #front::before, #back.success::before, #back.fail::before{
+    font-size: 4rem;
+  }
+}
+
+
+@media (max-width:1400px) {
+  @keyframes timeAttackIcon {
+    0%{
+      content: "\39";
+      font-size: 3rem;
+    }
+    5%{
+      content: "\39";
+      font-size: 4rem;
+    }
+    10%{
+      content: "\39";
+      font-size: 3rem;
+    }
+    15%{
+      font-size: 4rem;
+    }
+    20%{
+      content: "\38";
+      font-size: 3rem;
+    }
+    25%{
+      font-size: 4rem;
+    }
+    30%{
+      content: "\37";
+      font-size: 3rem;
+    }
+    35%{
+      font-size: 4rem;
+    }
+    40%{
+      content: "\36";
+      font-size: 3rem;
+    }
+    45%{
+      font-size: 4rem;
+    }
+    50%{
+      content: "\35";
+      font-size: 3rem;
+    }
+    55%{
+      font-size: 4rem;
+    }
+    60%{
+      content: "\34";
+      font-size: 3rem;
+    }
+    65%{
+      font-size: 4rem;
+    }
+    70%{
+      content: "\33";
+      font-size: 3rem;
+    }
+    75%{
+      font-size: 4rem;
+    }
+    80%{
+      content: "\32";
+      font-size: 3rem;
+    }
+    85%{
+      font-size: 4rem;
+    }
+    90%{
+      content: "\31";
+      font-size: 3rem;
+    }
+    95%{
+      font-size: 4rem;
+    }
+    100%{
+      content: "\30";
+      font-size: 3rem;
+    }
+  }  
+  #front::before, #back.success::before, #back.fail::before{
+    font-size: 3rem;
+  }
+  .info-layer{
+    font-size: 0.8rem;
+    .title{
+      font-size: 1.5rem;
+    }
+    .views{
+      .display, span{
+        font-size: 1.3rem;
+      }
+    }  
+  }
+  .points-layer{
+    font-size: 1.5rem;
+    line-height: 39px;
+  }
+}
+
+
+@media (max-width:1200px) {
+  @keyframes timeAttackIcon {
+    0%{
+      content: "\39";
+      font-size: 2rem;
+    }
+    5%{
+      content: "\39";
+      font-size: 3rem;
+    }
+    10%{
+      content: "\39";
+      font-size: 2rem;
+    }
+    15%{
+      font-size: 3rem;
+    }
+    20%{
+      content: "\38";
+      font-size: 2rem;
+    }
+    25%{
+      font-size: 3rem;
+    }
+    30%{
+      content: "\37";
+      font-size: 2rem;
+    }
+    35%{
+      font-size: 3rem;
+    }
+    40%{
+      content: "\36";
+      font-size: 2rem;
+    }
+    45%{
+      font-size: 3rem;
+    }
+    50%{
+      content: "\35";
+      font-size: 2rem;
+    }
+    55%{
+      font-size: 3rem;
+    }
+    60%{
+      content: "\34";
+      font-size: 2rem;
+    }
+    65%{
+      font-size: 3rem;
+    }
+    70%{
+      content: "\33";
+      font-size: 2rem;
+    }
+    75%{
+      font-size: 3rem;
+    }
+    80%{
+      content: "\32";
+      font-size: 2rem;
+    }
+    85%{
+      font-size: 3rem;
+    }
+    90%{
+      content: "\31";
+      font-size: 2rem;
+    }
+    95%{
+      font-size: 3rem;
+    }
+    100%{
+      content: "\30";
+      font-size: 2rem;
+    }
+  }  
+  #front::before, #back.success::before, #back.fail::before{
+    font-size: 2rem;
+  }
+  .info-layer{
+    font-size: 0.5rem;
+    .title{
+      font-size: 1.2rem;
+    }
+    .views{
+      .display, span{
+        font-size: 1rem;
+      }
+    }  
+  }
+  .points-layer{
+    font-size: 1.2rem;
+    line-height: 32px;
+  }
+}
+
+@media (max-width:768px) {
+  @keyframes timeAttackIcon {
+    0%{
+      content: "\39";
+      font-size: 1.3rem;
+    }
+    5%{
+      font-size: 1.8rem;
+    }
+    10%{
+      content: "\39";
+      font-size: 1.3rem;
+    }
+    15%{
+      font-size: 1.8rem;
+    }
+    20%{
+      content: "\38";
+      font-size: 1.3rem;
+    }
+    25%{
+      font-size: 1.8rem;
+    }
+    30%{
+      content: "\37";
+      font-size: 1.3rem;
+    }
+    35%{
+      font-size: 1.8rem;
+    }
+    40%{
+      content: "\36";
+      font-size: 1.3rem;
+    }
+    45%{
+      font-size: 1.8rem;
+    }
+    50%{
+      content: "\35";
+      font-size: 1.3rem;
+    }
+    55%{
+      font-size: 1.8rem;
+    }
+    60%{
+      content: "\34";
+      font-size: 1.3rem;
+    }
+    65%{
+      font-size: 1.8rem;
+    }
+    70%{
+      content: "\33";
+      font-size: 1.3rem;
+    }
+    75%{
+      font-size: 1.8rem;
+    }
+    80%{
+      content: "\32";
+      font-size: 1.3rem;
+    }
+    85%{
+      font-size: 1.8rem;
+    }
+    90%{
+      content: "\31";
+      font-size: 1.3rem;
+    }
+    95%{
+      font-size: 1.8rem;
+    }
+    100%{
+      content: "\30";
+      font-size: 1.3rem;
+    }
+  }  
+  #front::before, #back.success::before, #back.fail::before{
+    font-size: 1.3rem;
+  }
+  .info-layer{
+    font-size: 0.3rem;
+    .title{
+      font-size: 1rem;
+    }
+    .views{
+      .display, span{
+        font-size: 0.8rem;
+      } 
+    }  
+  }
+  .points-layer{
+    font-size: 1rem;
+    line-height: 25px;
+  }
+}
