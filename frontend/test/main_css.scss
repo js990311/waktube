@@ -11,6 +11,35 @@ body{
   width: 100%;
   height: 100%;
   z-index: 100;
+  .popover-layer{
+    z-index: 101;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border: 0;
+    margin: 0;
+    position: absolute;
+    .popover-box{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      #left-pop{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top:0;
+        left: 0;
+      }
+      #right-pop{
+        position: absolute;
+        top:0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+      }
+    }
+  }
 }
 .box{
   width: 200%;
@@ -69,7 +98,22 @@ body{
     top:2vh;
   }
 }
-
+.img-layer{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 4;
+  transition: all 200ms;
+  img{
+    width: 100%;
+    height: 100%;
+  }  
+}
+.opacityZero{
+  opacity: 0;
+}
 .btn-layer{
   width: 100%;
   height: 10%;
@@ -129,7 +173,7 @@ body{
   position: absolute;
   left : 7.14285714%;
   width: 35.7142857%;
-  z-index: 5;
+  z-index: 7;
   color:white;
   bottom: 40vh;
   text-align: center;
@@ -400,9 +444,9 @@ body{
 .blur-layer{
   width: 50%;
   height: 100%;
-  z-index: 4;
+  z-index: 6;
   position: absolute;
-  background-color: rgba(#000, 0.7);
+  background-color: rgba(#000, 0.4);
 }
 
 @media (min-width:1400px) {

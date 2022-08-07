@@ -229,3 +229,21 @@ let rightBtnEvent = () => {
   self = parseViews(document.getElementsByClassName("views")[1].childNodes[0].innerHTML)
   grading(self,anti);
 };
+
+let popShow = (whichSide) => {
+  if(whichSide == "left"){
+    popTarget = document.querySelector("[data-location='100'] .img-layer");
+  }else if(whichSide == "right"){
+    popTarget = document.querySelector("[data-location='50'] .img-layer");
+  }
+  popTarget.classList.add('opacityZero');
+};
+
+let popHide = (whichSide) => {
+  if(whichSide == "left"){
+    popTarget = document.querySelector("[data-location='100'] .img-layer");
+  }else if(whichSide == "right"){
+    popTarget = document.querySelector("[data-location='50'] .img-layer");
+  }
+  popTarget.classList.remove('opacityZero');
+};
