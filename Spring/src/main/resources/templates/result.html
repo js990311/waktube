@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=0">
+    <title>결과 페이지</title>
+    <link href="https://cdn.jsdelivr.net/gh/JellyBrick/SeguFont/SeguSegu-Regular.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/JellyBrick/SeguFont/Goseogu-Regular.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" th:href="@{/css/result.css}" href="result.css">
+    <script src="https://kit.fontawesome.com/4f9efab1e5.js" crossorigin="anonymous"></script>
+</head>
+<body onload="myFunc()">
+<div class="back-ground" id="v8j6sSGr0dk" th:id="${bgVideo.vid}"></div>
+<div class="front-ground">
+    <div class="result-layer">
+        <h3>당신의 점수는?</h3>
+        <h1><span th:text="${session['now-score']}">3</span>개</h1>
+        <p class="max-score">당신의 최고점수 = <span th:text="${session['max-score']}">4</span>개</p>
+        <p>총 <span th:text="${problems}">880</span>개의 문제가 준비되어 있습니다</p>
+        <a href="/test" class="retry-btn"><i class="fa-solid fa-rotate-left"></i><span>다시하기</span></a>
+    </div>
+</div>
+<script th:src="@{/js/result.js}" src="result.js"></script>
+<script>
+    let myFunc = ()=>{
+      p = document.getElementsByClassName('back-ground');
+      ytFunc(p[0].id);
+    };
+  </script>
+</body>
+</html>
