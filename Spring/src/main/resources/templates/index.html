@@ -24,7 +24,12 @@
                 <span th:text="${lastUpdate.minute}">36</span> 분
                 을 기준으로 합니다</p>
         </div>
-        <a href="/test" class="play-btn"><span>플레이하러 가기</span></a>
+        <div class="btn-layer">
+            <div class="btn-box">
+                <a href="/test?timeAttackMode=false" id="left"><i class="fa-solid fa-play"></i> 플레이하기</a>
+                <a href="/test?timeAttackMode=true" id="right"><i class="fa-regular fa-hourglass-half"></i> 타임어택모드</a>
+            </div>
+        </div>
     </div>
 </div>
 <script th:src="@{/js/result.js}" src="../result/result.js"></script>

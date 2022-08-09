@@ -18,7 +18,12 @@
         <h1><span th:text="${session['now-score']}">3</span>개</h1>
         <p class="max-score">당신의 최고점수 = <span th:text="${session['max-score']}">4</span>개</p>
         <p>총 <span th:text="${problems}">880</span>개의 문제가 준비되어 있습니다</p>
-        <a href="/test" class="retry-btn"><i class="fa-solid fa-rotate-left"></i><span>다시하기</span></a>
+        <div class="btn-layer">
+            <div class="btn-box">
+                <a th:href="|/test?timeAttackMode=${session.timeAttackMode}|" id="left"><i class="fa-solid fa-rotate-left"></i> 다시하기</a>
+                <a href="/" id="right"><i class="fa-solid fa-bars"></i> 메인메뉴로</a>
+            </div>
+        </div>
     </div>
 </div>
 <script th:src="@{/js/result.js}" src="result.js"></script>

@@ -21,6 +21,7 @@ public class ResultController {
             session = req.getSession();
             session.setAttribute("max-score", 0);
             session.setAttribute("now-score", 0);
+            session.setAttribute("timeAttackMode", false);
         }
         Integer maxScore = (Integer) session.getAttribute("max-score");
         Integer nowScore = (Integer) session.getAttribute("now-score");

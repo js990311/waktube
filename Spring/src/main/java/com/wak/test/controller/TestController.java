@@ -25,7 +25,7 @@ public class TestController {
     }
 
     @GetMapping
-    private String getTest(HttpServletRequest req, Model model){
+    private String getTest(HttpServletRequest req, Model model, @RequestParam(defaultValue="false") Boolean timeAttackMode){
         HttpSession session = req.getSession(false);
         if(session == null){
             session = req.getSession();
@@ -37,6 +37,8 @@ public class TestController {
                 session.setAttribute("max-score", nowScore);
             }
         }
+        session.setAttribute("timeAttackMode", timeAttackMode);
+
         List<Video> problems = videoRepository.findAll();
         session.setAttribute("problems", problems);
         session.setAttribute("now-score", 0);
@@ -48,7 +50,7 @@ public class TestController {
 
         for(int num=1;num<=3;num++) {
             int i=0;
-            while(Math.abs(tmp - ret) <= 100 && i <= 5){
+            while(Math.abs(tmp - ret) <= 500 && i <= 7){
                 Collections.shuffle(problems);
                 ret = problems.get(0).getViews();
                 i += 1;
@@ -78,8 +80,20 @@ public class TestController {
         Collections.shuffle(lv);
         // 랜덤으로 하나 뽑기
         Video ret = lv.get(0);
-        int i=0;
-        while(Math.abs(ret.getViews() - lastViews) <= 100 && i <= 5){
+
+        int i=0, diff;
+        if((nowScore+3) < 20){
+            diff = 300;
+        }else if((nowScore+3) < 40){
+            diff = 250;
+        }else if((nowScore+3) < 60){
+            diff = 200;
+        }else if((nowScore+3) < 80){
+            diff = 150;
+        }else{
+            diff = 100;
+        }
+        while(Math.abs(ret.getViews() - lastViews) <= diff && i <= 7){
             Collections.shuffle(lv);
             ret = lv.get(0);
             i += 1;

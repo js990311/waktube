@@ -24,17 +24,34 @@ let ytFunc = (tagId) => {
 
 let globalTimeOut;
 let timeAttack = () => {
-  document.getElementById("front").classList.add("timeAttack");
-  globalTimeOut = setTimeout( () => {
-    failEvent();
-  }, 10000);
-
+  if(timeAttackMode == false){
+    return;
+  }
+  else{
+    document.getElementById("front").classList.add("timeAttack");
+    globalTimeOut = setTimeout( () => {
+      failEvent();
+    }, 10000);
+  }
 };
 
 let stopTimeAttack = () => {
-  document.getElementById("front").classList.remove("timeAttack");
-  clearTimeout(globalTimeOut);
+  if(timeAttackMode == false){
+    return;
+  }
+  else{
+    document.getElementById("front").classList.remove("timeAttack");
+    clearTimeout(globalTimeOut);
+  }
 };
+
+idTest = 0
+idList = [
+  "OssGOAiU4qk",
+  "Hkg6Vu2Um5k",
+  "dIItlUWYeJ0",
+  "grhJIUYSNvE"
+];
 
 let newDocument = () =>{
   ret = {}
@@ -53,6 +70,7 @@ let newDocument = () =>{
     }
   }
 }
+
 
 let makeDocument =(newInfo) =>{
   // 메인박스
@@ -104,6 +122,15 @@ let makeDocument =(newInfo) =>{
   pExtra.appendChild(dotSpan);
   pExtra.appendChild(dateSpan);
 
+  /*
+    div.img-layer
+      img
+  */
+  divThumbnail = document.createElement("div");divThumbnail.classList.add("img-layer");
+  imgThumbnail = document.createElement("img");
+  imgSrc = 'https://i.ytimg.com/vi/'+newInfo['vid']+'/sddefault.jpg';
+  imgThumbnail.src = imgSrc;
+  divThumbnail.appendChild(imgThumbnail);
 
   // 패키징
   infoDiv.appendChild(pExtra);
@@ -112,6 +139,7 @@ let makeDocument =(newInfo) =>{
   newDiv.appendChild(infoDiv);
   newDiv.appendChild(blurDiv);
   newDiv.appendChild(playerDiv);
+  newDiv.appendChild(divThumbnail);
 
   // HTML로 추가
   targetBox = document.getElementsByClassName("box")[0];
@@ -126,7 +154,6 @@ let toggleBtn = (state) => {
 };
 
 let moveFunc = () =>{
-  toggleBtn();
   b0 = document.querySelector("[data-location='0']");
   b50 = document.querySelector("[data-location='50']");
   b100 = document.querySelector("[data-location='100']");
@@ -200,6 +227,7 @@ let failEvent = () =>{
 };
 
 let grading = (self, anti) => {
+  toggleBtn();
   document.getElementsByClassName("views")[1].childNodes[0].classList.add('display');
   stopTimeAttack();
   if(self < anti){
@@ -219,4 +247,22 @@ let rightBtnEvent = () => {
   anti = parseViews(document.getElementsByClassName("views")[0].childNodes[0].innerHTML)
   self = parseViews(document.getElementsByClassName("views")[1].childNodes[0].innerHTML)
   grading(self,anti);
+};
+
+let popShow = (whichSide) => {
+  if(whichSide == "left"){
+    popTarget = document.querySelector("[data-location='100'] .img-layer");
+  }else if(whichSide == "right"){
+    popTarget = document.querySelector("[data-location='50'] .img-layer");
+  }
+  popTarget.classList.add('opacityZero');
+};
+
+let popHide = (whichSide) => {
+  if(whichSide == "left"){
+    popTarget = document.querySelector("[data-location='100'] .img-layer");
+  }else if(whichSide == "right"){
+    popTarget = document.querySelector("[data-location='50'] .img-layer");
+  }
+  popTarget.classList.remove('opacityZero');
 };
